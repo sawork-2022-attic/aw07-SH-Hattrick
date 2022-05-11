@@ -1,9 +1,40 @@
-# aw07
+在Carts加入100个某商品
 
-Please extend your MicroPOS system by adding a delivery service shown as the following figure.
+![image-20220510124149893](https://gitee.com/cosie/markdown-pic/raw/master/image-20220510124149893.png)
 
-![](10-pos.svg)
+Checkout后清零
 
-When an order is placed by a user, the order serivce sends out an event into some AMQP MOM (such as RabbitMQ). The delivery service will be notified and a new delivery entry will be generated automatically. User can query the delivery status for his orders.
+![image-20220510124234364](https://gitee.com/cosie/markdown-pic/raw/master/image-20220510124234364.png)
 
-Use [Spring Cloud Stream](https://spring.io/projects/spring-cloud-stream) to make the scenerio happen. Of coz you can refer to the [demo](https://github.com/sa-spring/stream-loan) for technical details.
+OrderSource会自动发出
+
+![](https://gitee.com/cosie/markdown-pic/raw/master/image-20220510124306491.png)
+
+
+
+OrderCheck会计算总价，如果小于10000则APPROVED
+
+![image-20220510124406093](https://gitee.com/cosie/markdown-pic/raw/master/image-20220510124406093.png)
+
+
+
+现在重新添加10000个商品
+
+![image-20220510124515703](https://gitee.com/cosie/markdown-pic/raw/master/image-20220510124515703.png)
+
+Checkout
+
+![image-20220510124527175](https://gitee.com/cosie/markdown-pic/raw/master/image-20220510124527175.png)
+
+总价543000>10000 DECLINED
+
+![image-20220510124550596](https://gitee.com/cosie/markdown-pic/raw/master/image-20220510124550596.png)
+
+
+
+---
+
+![image-20220510124716304](https://gitee.com/cosie/markdown-pic/raw/master/image-20220510124716304.png)
+
+![image-20220510124729165](https://gitee.com/cosie/markdown-pic/raw/master/image-20220510124729165.png)
+
